@@ -6,6 +6,11 @@
   /* Colors */
   --white: #fff;
   --black: #000;
+  --blackyblue:#15133C;
+  --grise:#73777B;
+  --orange:#EC994B;
+  --light:#F1EEE9;
+
 }
 
 
@@ -32,7 +37,7 @@ p {
   padding: 0;
 }
 
-ul {
+ul,li {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -52,3 +57,30 @@ button:focus {
   outline: none;
 }
 
+
+/* Utility */
+body.dark-body{
+  background-color: var(--blackyblue);
+}
+.container {
+      margin: 0 auto;
+      background-color: var(--light);
+      width: 100%;
+      height: 100vh;
+      max-width: 1000px;
+      padding: 0 1rem;
+      margin: 1rem auto;
+      border-radius: 2rem;
+    }
+
+    /* Header  */
+h1{
+  font-family: 'Exo 2', sans-serif;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.task-form {
+  display: flex;
+  gap: 2rem;
+}

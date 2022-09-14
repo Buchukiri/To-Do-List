@@ -81,6 +81,33 @@ h1{
 }
 
 .task-form {
-  display: flex;
+
   gap: 2rem;
+}
+
+
+/* SECTION Tasks */
+
+
+#add-task{
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.task-input {
+  display: flex;
+}
+
+
+
+.task-list {
+  margin-top: 3rem;
+  background-color: var(--grise);
+  font-size: 1.5rem;
+
+}
+
+.task-form {
+  padding: 2rem 2rem;
 }

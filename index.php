@@ -1,66 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css?<?=time()?>">
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;200&display=swap" rel="stylesheet">
-    <title>To Do List</title>
-</head>
-  <body class="dark-body">
-    <?php
-        try {
-          $dbCo = new PDO(
-            'mysql:host=localhost;dbname=to_do_list;charset=utf8',
-            'tima',
-            'XsDtj@x@.0YLKET('
-            );
-          $dbCo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,
-            PDO::FETCH_ASSOC);
-            }
-            catch (Exception $e) {
-            die("Unable to connect to the database.
-            ".$e->getMessage());
-            };
-          $resultTask = $dbCo->query("SELECT description FROM task WHERE done=0");
-          $resultTask = $resultTask->fetchAll();
-      ?>
-    <div class="container">
-      <header class="header">
-        <h1>
-          To Do List
-        </h1>
-      </header>
+<?php
+  require_once 'config/_connect.php';
+  include 'config/_header.php';
+?>
 
-      <div calss="new-task">
-
-        <form action="" method="post" class="task-form">
+      <div calss="add-task" id="add-task">
+        <form action="action.php" method="post" class="task-form">
           <div class="task-input">
-            <label for="description">Enter New Task</label>
+            <label name="new-task" for="description">Enter New Task</label>
             <input type="text" name="description" required>
           </div>
-          <div class="form-example">
+            <div class="task-priority">
+            <label name="new-priority" for="priority">Priority</label>
+            <input type="number" value="0" min="0" max="11" name="priority" required>
+          </div>
+            <div class="task-date-reminder">
+            <label name="task-date-reminder" for="date_reminder">Date Reminder</label>
+            <input type="date" name="task-date-reminder" required>
+          </div>
+          <div class="task-Color">
+            <label for="color">Select color:</label>
+            <input type="color" id="favcolor" name="task-color" value="#ff0000" required>
+          </div>
+          <div class="task-done">
+            <label name="task-done" for="done">Situation</label>
+            <input type="number" min="0" max="1" value="0" name="task-done" required>
+          </div>
+          <!-- <div class="task-id-user">
+            <label name="id-user" for="id_user">ID user</label>
+            <input type="number"  min="0" max="5" value="0" name="id-user" required>
+          </div> -->
+          <div class="form-submit">
             <input type="submit" value="Add">
           </div>
         </form>
+      </div>
 
+      <div class="task-list">
+        <?php
+            $tasks = $dbCo->query("SELECT description FROM task WHERE done=0");
+            $tasks = $tasks->fetchAll();
+
+            foreach($tasks as $task) {
+              echo "<li>".$task["description"]."</li>"; 
+            }
+
+            
+
+
+      ?>
 
       </div>
 
 
 
-      <?php
-        foreach($resultTask as $task) {
-          echo "<li>".$task["description"]."</li>"; 
-        }
-        $_POST = $dbCo->query("INSERT INTO 'description' FROM task");
-      
-        
-        var_dump($_POST);
 
 
-      ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
 

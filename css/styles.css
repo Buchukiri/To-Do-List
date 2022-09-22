@@ -66,8 +66,9 @@ body.dark-body{
       margin: 0 auto;
       background-color: var(--light);
       width: 100%;
-      height: 100vh;
+      height: 100%;
       max-width: 1000px;
+      max-height: 100%;
       padding: 0 1rem;
       margin: 1rem auto;
       border-radius: 2rem;
@@ -85,6 +86,21 @@ h1{
   gap: 2rem;
 }
 
+.tasks-configs{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  align-items: center;
+  justify-content: center;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1.2rem;
+}
+
+
+.description{
+  margin-top: 1rem;
+  height: 2rem;
+  border-radius: 1rem;
+}
 
 /* SECTION Tasks */
 
@@ -97,17 +113,76 @@ h1{
 
 .task-input {
   display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
+.task-priority {
+}
 
+.task-date-reminder {
+
+}
+
+.task-Color{
+
+
+}
+
+.task-done{
+
+}
+
+.task-id-user{
+
+
+}
+
+.form-submit{
+  text-align: center;
+}
+
+.add{
+  width: 8rem;
+  border-radius: 1rem;
+}
 
 .task-list {
-  margin-top: 3rem;
-  background-color: var(--grise);
+  margin-top: 1.5rem;
   font-size: 1.5rem;
+  padding-bottom: 1rem;
 
 }
 
 .task-form {
   padding: 2rem 2rem;
+}
+
+.task-list-description{
+  display: grid;
+  grid-template-columns: repeat(7 ,1fr);
+  margin-bottom: 0.5rem;
+  text-align: center;
+  align-items: center;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 700;
+  border-bottom: 2px solid;
+}
+
+.task{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 0.5rem;
+  align-items: center;
+  font-family: 'Exo 2', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.config-task{
+  display: flex;
+  justify-content: space-between;
 }
